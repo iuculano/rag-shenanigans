@@ -34,7 +34,7 @@ embedding_pipeline.run({'text_file_converter': {'sources': files}})
 retriever = PgvectorKeywordRetriever(document_store=document_store)
 data = retriever.run(query='What is Karpenter')
 
-text_embedder = OpenAITextEmbedder()
+text_embedder = OpenAITextEmbedder(model='text-embedding-3-small')
 embedding_retriever = PgvectorEmbeddingRetriever(document_store=document_store, vector_function='cosine_similarity')
 bm25_retriever = PgvectorKeywordRetriever(document_store=document_store)
 document_joiner = DocumentJoiner()
