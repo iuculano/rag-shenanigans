@@ -4,13 +4,13 @@ Misadventures in trying to minimize "garbage in" to the model and experiments in
 
 * https://github.com/aws-samples/layout-aware-document-processing-and-retrieval-augmented-generation
 * https://www.reddit.com/r/LangChain/comments/1dtr49t/agent_rag_parallel_quotes_how_we_built_rag_on/
+* https://techcommunity.microsoft.com/t5/microsoft-developer-community/doing-rag-vector-search-is-not-enough/ba-p/4161073
 
 ## What works (in a hacked together in a weekend way)
 
 Half the magic is in the splitter. It is intended to produce sentence sized vectors.
 
 To accomplish this, it will:
-
 
 1. First, split a document on “sections” and assign an ID to each.
 2. Each section is split into sentences - these are our chunks/vectors.
