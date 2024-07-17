@@ -37,7 +37,7 @@ class CustomDocumentSplitter:
             # At the end, there's no further indicies so we just run until
             # the end of the document instead of the next index
             beg = indicies[x][0]
-            end = indicies[x][0] + indicies[x + 1][0] if x < (num_sections - 1) else len(data)
+            end = indicies[x + 1][0] if x < (num_sections - 1) else len(data)
             name = indicies[x][2]
 
             # String of the entire section
