@@ -64,18 +64,33 @@ test = 1
 
 # Dedupe section spans for retrieved chunks
 deduped_sections = {}
-for document in result['retriever']['documents']:
+for document in result['ranker']['documents']:
     identifer = document.meta['section_id']
+    name = document.meta['document_name']
     start = document.meta['reconstruction_start_index']
     end = document.meta['reconstruction_end_index']
+    section = document.meta['section_name']
+    content = document.content
+
     
     if identifer not in result:
         # End is static, it's always the end of the section
-        deduped_sections[identifer] = {'start': start, 'end': end}
+        deduped_sections[identifer] = {
+            'name': name,
+            'section': section,
+            'content': content,
+            'start': start, 
+            'end': end
+        }
     else:
         # Set the smaller value as we iterate over
         deduped_sections[identifer]['start'] = min(result[identifer]['start'], start)
 
+for key, value in deduped_sections.items():
+    with open(f'files/{value["name"]}', 'r') as file:
+        data = file.read()
+        chunk = data[value['start']:value['end']]
+        test = 1
 
 
 print(result['retriever']['documents'][0])
