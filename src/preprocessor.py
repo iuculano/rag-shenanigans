@@ -62,7 +62,7 @@ class CustomDocumentSplitter:
                         'document_name': os.path.basename(doc.meta['file_path']),
                         'section_name': name,
                         'section_id': indicies[x][3],
-                        'reconstruction_start_index': beg + span[1], 
+                        'reconstruction_start_index': beg + span[0], # include the vector
                         'reconstruction_end_index': end,
                         'reconstruction_distance': end - (beg + span[1])
                     }
