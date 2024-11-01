@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name:      base
+  namespace: argocd
+spec:
+  goTemplate:        true
+  goTemplateOptions: ['missingkey=error']
+
+  generators:
+  - matrix:
+      generators:
+      - clusters: {}
+      - git:
+          repoURL:  https://github.com/iuculano/rag-shenanigans.git
+          revision: monorepo-app
+          directories:
+          - path: infrastructure/kubernetes/apps/*
+
+  template:
+    metadata:
+      name: '{{.path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL:        https://github.com/iuculano/rag-shenanigans.git
+        path:           '{{.path.path}}/overlays/{{.metadata.labels.environment}}'
+        targetRevision: monorepo-app
+      destination:
+        server:    '{{.server}}'
+        namespace: '{{.path.basename}}'
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
