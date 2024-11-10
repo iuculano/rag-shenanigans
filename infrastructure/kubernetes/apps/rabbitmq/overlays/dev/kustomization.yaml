@@ -5,8 +5,8 @@ resources:
 - ../../bases
 
 images:
-- name:    rabbitmq
-  newName: rabbitmq:4-management
+- name:   rabbitmq
+  newTag: 4.0-management
 
 labels:
 - pairs:
