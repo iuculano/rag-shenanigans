@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-app
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name:  rabbitmq
+        image: rabbitmq:4-management
+        ports:
+        - containerPort: 5672
+        - containerPort: 15672
