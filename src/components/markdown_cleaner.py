@@ -1,7 +1,7 @@
-from haystack import component, Document
-from markdown_it import MarkdownIt
+from haystack          import component, Document
+from markdown_it       import MarkdownIt
 from mdformat.renderer import MDRenderer
-from typing import List
+from typing            import List
 
 
 @component

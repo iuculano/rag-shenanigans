@@ -1,2 +1,3 @@
-from components.markdown_cleaner import MarkdownDocumentCleaner
-from components.markdown_splitter import MarkdownDocumentSplitter
+from components.byte_array_adaptor import ByteArrayAdapter
+from components.markdown_cleaner   import MarkdownDocumentCleaner
+from components.markdown_splitter  import MarkdownDocumentSplitter

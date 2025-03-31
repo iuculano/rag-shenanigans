@@ -1,6 +1,7 @@
-haystack-ai~=2.2.0
-pgvector-haystack~=0.5.0
-jina-haystack~=0.3.0
-nltk~=3.8.0
+haystack-ai~=2.11.0
+pgvector-haystack~=3.1.0
+jina-haystack~=0.5.0
+nltk~=3.9.0
 mdformat~=0.7.0
 SQLAlchemy~=2.0.0
+fsspec~=2025.3.0

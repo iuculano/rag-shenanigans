@@ -48,8 +48,8 @@ class MarkdownDocumentSplitter:
                 # Generate spans of the sections
                 # At the end, there's no further indicies so we just run until
                 # the end of the document instead of the next index
-                beg = indicies[x][0]
-                end = indicies[x + 1][0] if x < (num_sections - 1) else len(data)
+                beg  = indicies[x][0]
+                end  = indicies[x + 1][0] if x < (num_sections - 1) else len(data)
                 name = indicies[x][2]
 
                 # String of the entire section
@@ -70,12 +70,12 @@ class MarkdownDocumentSplitter:
                     chunk_data = {
                         "content": section[span[0] : span[1]],
                         "metadata": {
-                            "document_name": os.path.basename(doc.meta["file_path"]),
-                            "section_name": name,
-                            "section_id": indicies[x][3],
+                            "document_name":              os.path.basename(doc.meta["file_path"]),
+                            "section_name":               name,
+                            "section_id":                 indicies[x][3],
                             "reconstruction_start_index": beg + span[0],  # include the vector
-                            "reconstruction_end_index": end,
-                            "reconstruction_distance": end - (beg + span[1]),
+                            "reconstruction_end_index":   end,
+                            "reconstruction_distance":    end - (beg + span[1]),
                         },
                     }
 
